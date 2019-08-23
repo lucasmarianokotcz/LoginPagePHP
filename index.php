@@ -36,8 +36,9 @@
         if ($_POST['usuario'] == "lucas" && $_POST['senha'] == "123") { // verifica se o user é 'lucas' e se a senha é '123'
             echo '<div id="boas-vindas">Bem-vindo ' . $_POST['usuario'] . '!</div>'; // dá mensagem de boas-vindas ao usuário logado
         } else { // se o user e a senha não forem certas
-            $_SESSION['msg'] = '<div id="erro">Usuário ou senha incorretos.<br></div>'; // cria a sessão 'msg' com mensagem de erro
-            header("Location: ."); // redireciona à mesma página para nova tentativa de login
+            $_SESSION['msg'] = '<div id="erro">Usuário ou senha incorretos.<br></div>'; // cria a sessão 'msg' com mensagem de erro            
+            header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"); // redireciona à mesma página para nova tentativa de login
+            exit;
         }
     } ?>
 </body>
