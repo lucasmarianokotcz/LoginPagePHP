@@ -37,8 +37,7 @@
             echo '<div id="boas-vindas">Bem-vindo ' . $_POST['usuario'] . '!</div>'; // dá mensagem de boas-vindas ao usuário logado
         } else { // se o user e a senha não forem certas
             $_SESSION['msg'] = '<div id="erro">Usuário ou senha incorretos.<br></div>'; // cria a sessão 'msg' com mensagem de erro            
-            header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"); // redireciona à mesma página para nova tentativa de login
-            exit;
+            echo '<script>window.location.href=window.location.href</script>'; // redireciona para nova tentativa de login
         }
     } ?>
 </body>
